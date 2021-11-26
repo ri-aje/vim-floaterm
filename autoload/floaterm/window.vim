@@ -243,7 +243,7 @@ function! floaterm#window#hide(bufnr) abort
       call nvim_win_close(bd_winid, v:true)
     endif
   else
-    if s:winexists(winid)
+    if s:winexists(winid) || !has('patch3400')
       try
         call popup_close(winid)
       catch
