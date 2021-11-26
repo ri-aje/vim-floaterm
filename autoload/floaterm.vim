@@ -63,6 +63,10 @@ function! floaterm#new(bang, cmd, jobopts, config) abort
       let bufnr = floaterm#terminal#open(-1, a:cmd, a:jobopts, a:config)
     endif
   else
+    " always force close shell window.
+    if !has_key(a:config, 'autoclose')
+      let a:config.autoclose = 2
+    endif
     let bufnr = floaterm#terminal#open(-1, g:floaterm_shell, a:jobopts, a:config)
   endif
   return bufnr
