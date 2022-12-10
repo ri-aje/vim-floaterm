@@ -260,6 +260,13 @@ Type `List` of `String`. Markers used to detect the project root directory for `
 
 Default: `['.project', '.git', '.hg', '.svn', '.root']`
 
+#### **`g:floaterm_giteditor`**
+
+Type `Boolean`. Whether to override `$GIT_EDITOR` in floaterm terminals so git commands can
+open open an editor in the same neovim instance. See [git](#git) for details.
+
+Default: `v:true`
+
 #### **`g:floaterm_opener`**
 
 Type `String`. Command used for opening a file in the outside nvim from within `:terminal`.
@@ -371,8 +378,8 @@ no-current-focused window(`:help NormalNC`).
 ```vim
 " Configuration example
 
-" Set floaterm window background to gray once the cursor moves out from it
-hi FloatermNC guibg=gray
+" Set floaterm window foreground to gray once the cursor moves out from it
+hi FloatermNC guifg=gray
 ```
 
 <details>
@@ -418,6 +425,8 @@ P.S.
 #### [git](https://git-scm.com/)
 
 Execute `git commit` in the terminal window without starting a nested vim/nvim.
+
+Refer to [g:floaterm_giteditor](#gfloaterm_giteditor) to disable this behavior.
 
 Refer to [g:floaterm_opener](#gfloaterm_opener) for configurable open action
 
